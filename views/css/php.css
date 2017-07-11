@@ -1,0 +1,103 @@
+/*PHP CSS*/
+body{
+    margin: 0;
+}
+/*Registration Form*/
+#form-layout{
+  margin: 10px auto;
+  width: 240px;
+  height: 290px;
+  background-color: #e4e4e4;
+  border: 2px solid #3e98d1;
+  border-radius: 15px;
+  text-align: left;
+  color: #3e98d1;
+  font-weight: bold;
+  font-style: italic;
+}
+
+p{
+  margin: 0;
+}
+
+input{
+  border-radius: 5px;
+  outline: none;
+  font-family: serif;
+  font-size: 18px; /*To change height of form field, change font-size*/
+  margin: 5px;
+  width: 80%;
+}
+
+#register{
+  padding: 10px;
+}
+
+#register input[type='password']{
+  width: 90%;
+}
+
+input[type='submit']{
+  height: 30px;
+  background-color: #c8c8c8;
+  cursor: pointer;
+}
+
+/*end registration form*/
+
+/*Login form*/
+#login{
+  margin: 5% auto;
+  width: 561px;
+  background-color: #e4e4e4;
+  border: 2px solid #3e98d1;
+  border-radius: 15px;
+  padding: 10px;
+  color: #3e98d1;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20px;
+}
+
+#loging form{
+  text-align: center;
+}
+
+#login input{
+  width: 30%;
+  height: 30px;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+button{
+  height: 20px;
+}
+
+/*error*/
+#error{
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*end login form*/

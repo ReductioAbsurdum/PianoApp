@@ -1,0 +1,277 @@
+/* CSS */
+body{
+	margin: 0;
+	text-align: center;
+	}
+
+#myCanvas{
+	width: 30%;
+	border:3px solid #000000;
+	border-radius: 15px;
+	}
+
+hr {
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr:after {
+    content: "Bravo!";
+	font-style: italic;
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+#buttons{
+	text-align: center;
+}
+.key{
+	float: left;
+	width: 3.225%;
+	height: 160px;
+  	border: 1px solid #626262;
+	background-color: white;
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0px -10px 2px 0px #838383 inset, 0 -20px 40px 10px #EEEEEE inset;
+}
+
+.key:active {
+	 border: 1px solid #343434;
+
+	background-image: -moz-linear-gradient(center bottom , #E41215 90%, #FFFFFF 100%);
+	-moz-box-shadow: 0 -5px 2px 0px #838383 inset,0 -3px 20px -3px #272927 inset;
+
+	background-image: -gradient(center bottom , #FFFFFF 90%, #E41215 100%);
+	-webkit-box-shadow: 0 -5px 20px -3px #272927 inset;
+
+	background-image: linear-gradient(#E41215, #FFFFFF);
+	box-shadow: 0 -5px 20px -3px #272927 inset;
+}
+
+.key_b{
+	z-index: 1;
+	float: left;
+	position: relative;
+	margin-left: -98%;
+	width: 2.5%;
+	height: 90px;
+  background-color: #000000;
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0 -9px 10px 9px #303030 inset, 0 -15px #F7F7F7 inset;
+}
+
+.key_b, .key:hover{
+	cursor: pointer;
+	}
+
+.key_b:active{
+	z-index:1;
+	border: 1px solid #CECECE;
+  border-top: 1px solid #626262;
+	-moz-box-shadow: 0 0 6px 7px #303030 inset, 0 -5px #F7F7F7 inset;
+	-webkit-box-shadow: 0 0 6px 7px #303030 inset, 0 -5px #F7F7F7 inset;
+	box-shadow: 0 0 6px 7px #303030 inset, 0 -5px #F7F7F7 inset;
+}
+
+.flats{
+	z-index: 1;
+}
+
+#piano{
+	margin: auto;
+	width: 90%;
+	height: 170px;
+	}
+
+button{
+	height: 50px;
+	width: 10%;
+	border-radius: 15%;
+	margin: 15px 3.5px 3.5px 0px;
+	font-size: 26px;
+}
+
+button:hover{
+	border: white;
+}
+
+button:focus{
+	outline: none;
+}
+
+#submit{
+	height: 50px;
+	width: 150px;
+	border-radius: 15%;
+	margin: 15px 3.5px 3.5px 0px;
+	font-size: 26px;
+}
+
+#overlay{
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	background: #999;
+	opacity: 0.8;
+	z-index: 2;
+}
+
+#results{
+	visibility: hidden;
+	position: absolute;
+	top: 30px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color: #FFF;
+	padding-bottom: 20px;
+	width: 70%;
+	border-radius: 15px;
+	border: 3px solid black;
+	text-align:center;
+	z-index: 2;
+}
+
+#results.show {
+	-webkit-animation: pop-swirl 1s ease forwards;
+	visibility: visible;
+}
+
+#overlay.show {
+	visibility: visible;
+}
+
+#popUpExit{
+	float:right;
+	margin-right: 20px;
+	font-size: 26px;
+}
+
+#popUpExit:hover{
+	cursor: pointer;
+}
+
+.finish{
+	font-size: 18px;
+	width: 150px;
+	height: 50px;
+}
+
+#results h1{
+	margin-left: 26px;
+}
+
+.score{
+	display:inline-block;
+	margin: 0 3% 0 3%;
+}
+
+#php{
+	margin:auto;
+}
+
+#php th {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 26px;
+background: #666;
+color: #FFF;
+padding: 2px 6px;
+border: 1px solid #000;
+text-align: center;
+}
+
+#php td {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 24px;
+padding: 2px 12px;
+border: 1px solid #DDD;
+}
+
+#logout{
+	font-size: 100%;
+}
+
+@keyframes pop-swirl {
+  0% {
+    transform: scale(0) rotate(360deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@media (max-width: 800px){
+	#scaling{
+	background-color: white;
+	width: 1000px;
+	height: 185px;
+	overflow-x: hidden;
+	}
+	#piano{
+		overflow: scroll;
+		overflow-y: hidden;
+		height: 180px;
+	}
+	#middle_C{
+		width: 22px;
+		height: 10px;
+		border-radius: 15%;
+		background-color: rgb(61, 152, 209);
+		margin-left: 451px;
+	}
+	#myCanvas{
+		width: 40%;
+		margin-top: 50px;
+	}
+	#piano::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+	#piano {
+		overflow: -moz-scrollbars-none;
+	}
+	#results{
+		font-size: 16px;
+	}
+	.score{
+		margin: 0 3% 0 3%;
+	}
+}
+
+@media (max-width: 550px){
+	#results{
+		font-size: 10px;
+	}
+	#results h1{
+		margin: 40px 7px 0 0;
+		font-size: 30px;
+	}
+	#submit{
+		width: 100%;
+	}
+	#myCanvas{
+		width: 60%;
+		margin-top: 0px;
+	}
+	#logout{
+		width: 30%;
+	}
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Flash Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <script src="js_min.js" type="text/javascript"></script>
+		<!--<script src="javascript.js" type="text/javascript"></script>-->
+</head>
+
+<body>
+
+	<!--[IMAGES FOR FLASHCARDS (.PNG)]-->
+    <img class="images" id="brace" src="brace.png" alt="brace" style="display: none;"/>
+    <img class="images" id="vertical" src="vertical.png" alt="vertical" style="display: none;"/>
+    <img class="images" id="vertical2" src="vertical.png" alt="vertical" style="display: none;"/>
+    <img class="images" id="staff" src="staff.png" alt="staff" style="display: none;"/>
+    <img class="images" id="staff2" src="staff.png" alt="staff" style="display: none;"/>
+    <img class="images" id="F_clef" src="F_clef.png" alt="F_clef" style="display: none;"/>
+    <img class="images" id="G_clef" src="G_clef.png" alt="G_clef" style="display: none;"/>
+    <img class="images" id="ledger" src="ledger.png" alt="ledger" style="display: none;"/>
+    <img class="images" id="quarter" src="quarter.png" alt="quarter" style="display: none;"/>
+    <img class="images" id="quarterUp" src="quarterUp.png" alt="quarter" style="display: none;"/>
+    <!--[END: (Images for flashcards)]-->
+
+<!--[RESULTS POPUP]-->
+<div id="overlay"></div>
+
+<div id="results">
+  <span id="popUpExit">
+		<a href="../controller/logout.php">X</a>
+	</span>
+	<h1>YOUR RESULTS</h1>
+  <hr id="h"/>
+  <div id="score_data">
+  	<div class="score">
+    	<h2>CORRECT</h2>
+      <h2 id="correct">num</h2>
+    </div>
+    <div class="score" >
+      <h2>INCORRECT</h2>
+      <h2 id="incorrect">num</h2>
+    </div>
+    <div class="score">
+      <h2>TIME</h2>
+      <h2 id="time">num</h2>
+    </div>
+  </div>
+	<div>
+	<span>
+		<button class="finish" id="replay" onClick="newGame();">Play again</button>
+		<button class="finish" id="sendStuff" onClick="sendData();">Submit Score</button>
+		<button class="finish" onClick="getScores();">Personal Scores</button>
+	</span>
+	</div>
+</div>
+<!--[END: (results popup)]-->
+
+<!--[FLASHCARD CANVAS]-->
+<canvas id="myCanvas" height="260" width="250"></canvas>
+<!--[END: (flashcard canvas)]-->
+
+    <!--[PIANO]-------------------------------------------------------------------------------------------->
+<div id="piano" style="border: 3px solid black; background-color: black;">
+	<div id="scaling">
+    <div id="middle_C"></div>
+    <div id="red" style="width: 100%; background-color: #990A0D; height: 3px; z-index:1;"></div>
+
+    <!--[WHITE KEYS]-->
+    <div class="key" id="c2" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="d2" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="e2" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="f2" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="g2" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="a2" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="b2" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+
+		<div class="key" id="c3" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="d3" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="e3" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="f3" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="g3" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="a3" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="b3" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+
+    <div class="key" id="c4" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="d4" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="e4" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="f4" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="g4" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="a4" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="b4" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+
+    <div class="key" id="c5" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="d5" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="e5" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="f5" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="g5" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="a5" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="b5" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+
+    <div class="key" id="c6" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="d6" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <div class="key" id="e6" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="moo(this)"></div>
+    <!--[END: (white keys)]-->
+
+    <!--[BLACK KEYS]-->
+    <div class="flats">
+
+    	<div id="c2s" class="key_b" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+   		<div id="d2s" class="key_b" style="margin-left: -94.9%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div id="f2s" class="key_b" style="margin-left: -88.3%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div id="g2s" class="key_b" style="margin-left: -85.1%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div id="a2s" class="key_b" style="margin-left: -81.9%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+
+    	<div class="key_b" style="margin-left: -75.5%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+   		<div class="key_b" style="margin-left: -72.2%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -65.7%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -62.5%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -59.2%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+
+   	 	<div class="key_b" style="margin-left: -52.8%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+   		<div class="key_b" style="margin-left: -49.6%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -43.2%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -40%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -36.8%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+
+    	<div class="key_b" style="margin-left: -30.4%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+   		<div class="key_b" style="margin-left: -27.1%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -20.6%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -17.5%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    	<div class="key_b" style="margin-left: -14.3%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+
+    	<div class="key_b" style="margin-left: -7.8%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+   		<div class="key_b" style="margin-left: -4.5%" onClick="ChangeKeyBlue(this)" onMouseOver="mov(this)" onMouseOut="mob(this)"></div>
+    </div>
+    <!--[END: (black keys)]-->
+  </div>
+    <!--[END: (#scaling)]-->
+</div>
+<!--[END: (piano)]-------------------------------------------------------------------------------------------->
+
+    <!--[BOTTOM BUTTONS]-->
+  <button id="a" onclick="buttonFunction(this)"><b>A</b></button>
+  <button id="b" onclick="buttonFunction(this)"><b>B</b></button>
+  <button id="c" onclick="buttonFunction(this)"><b>C</b></button>
+  <button id="d" onclick="buttonFunction(this)"><b>D</b></button>
+  <button id="e" onclick="buttonFunction(this)"><b>E</b></button>
+  <button id="f" onclick="buttonFunction(this)"><b>F</b></button>
+  <button id="g" onclick="buttonFunction(this)"><b>G</b></button>
+  <button id="submit" onclick="toWhite()"><b>Submit</b></button>
+    <!--[END: (bottom buttons)]-->
+	<div>
+		<a href="../controller/logout.php"><button id="logout"><b>Log Out</b></button></a>
+	</div>
+</body>
+</html>
